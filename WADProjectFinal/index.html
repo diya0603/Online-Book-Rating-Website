@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Book Nookery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images/homework.png" />
+    <script>
+    function chkpasswords() {
+  if (document.getElementById("firstpwd").value == ""){
+  alert('You have not entered a password, please enter ');
+  document.getElementById("firstpwd").focus();
+  return false;
+  }
+  if (document.getElementById("firstpwd").value !=
+  document.getElementById("secondpwd").value)
+  {
+  alert('The two password you entered are not same, please re-enter');
+  document.getElementById("firstpwd").focus();
+  document.getElementById("firstpwd").select();
+  return false;
+  }
+  else {
+  return true;
+  } }
+  </script>
+  </head>
+  <body>
+<div class="full-page">
+  <div class="navbar">
+    <div>
+      <a href="index.html">Book Nookery</a>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <li><a href="crime.html">Crime</a></li>
+        <li><a href="romance.html">Romance</a></li>
+        <li><a href="fantasy.html">Fantasy</a></li>
+        <li><a href="science.html">Science</a></li>
+        <li><a href="horror.html">Horror</a></li>
+        <li><button onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
+      </ul>
+    </nav>
+
+  </div>
+  <div id="contact-form" class="contact">
+    <div class="form-box" style="color:#B8E4F0;text-align:center;padding-top:80px;height:300px;">
+      <h1>Contact us:</h1>
+      <p style="padding-top:20px;">Email: abc@gmail.com</p>
+        <p style="padding-top:20px;">Phone: 0987654321</p>
+    </div>
+  </div>
+  <div id="login-form" class="login-page">
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" onclick="login()" class="toggle-btn">Log In</button>
+        <button type="button" onclick="register()" class="toggle-btn">Register</button>
+      </div>
+      <form action="login" id="login" class="input-group-login">
+        <input name="email" type="email" class="input-field" placeholder="Email Id" required />
+        <input name="pwd" type="password" class="input-field" placeholder="Enter Password" required />
+        <input name="check" type="checkbox" class="check-box"/><span>Remember Password</span>
+        <button type="submit" class="submit-btn">Log in</button>
+      </form>
+      <form action="register" id="register" class="input-group-register" onsubmit="return(chkpasswords());">
+        <input name="fname" type="text" class="input-field" placeholder="First Name" required />
+        <input name="lname" type="text" class="input-field" placeholder="Last Name" required />
+        <input name="email" type="email" class="input-field" placeholder="Email Id" required />
+        <input name="pwd" type="password" id="firstpwd" class="input-field" placeholder="Enter Password" required />
+        <input type="password" id="secondpwd" class="input-field" placeholder="Confirm Password" required />
+        <input type="checkbox" class="check-box"/><span>I agree to the terms and conditions</span>
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+
+    </div>
+  </div>
+  <button class="contactbtn" onclick="document.getElementById('contact-form').style.display='block'">Contact</button>
+</div>
+<script>
+  var x=document.getElementById('login');
+  var y=document.getElementById('register');
+  var z=document.getElementById('btn');
+  function register()
+  {
+    x.style.left='-400px';
+    y.style.left='50px';
+    z.style.left='110px';
+  }
+  function login()
+  {
+    x.style.left='50px';
+    y.style.left='450px';
+    z.style.left='0px';
+  }
+
+</script>
+<script>
+  var modal= document.getElementById('login-form');
+  var m=document.getElementById('contact-form');
+  window.onclick=function(event)
+  {
+    if(event.target==modal || event.target==m)
+    {
+      modal.style.display="none";
+      m.style.display="none";
+    }
+  }
+</script>
+  </body>
+</html>
